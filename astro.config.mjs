@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// Set `site` to your final domain (e.g. https://rahuldev.vercel.app) so the RSS feed and canonical URLs are correct.
+// The site's public address, used for RSS feed links. Update it if you add a custom domain.
 export default defineConfig({
-  site: 'https://example.vercel.app',
+  site: 'https://rde-portfolio.vercel.app',
 });
