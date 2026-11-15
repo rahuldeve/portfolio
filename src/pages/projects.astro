@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { projects } from '../resume';
+---
+<Base title="Projects" description="Things I've built.">
+  <h1>Projects</h1>
+  <p class="meta">Things I've built along the way.</p>
+  <div class="cards">
+    {projects.map((p) => (
+      <article class="card">
+        <p class="card-where">{p.where}</p>
+        <h3>{p.name}</h3>
+        <p>{p.summary}</p>
+        <ul class="tags">{p.tags.map((t) => <li>{t}</li>)}</ul>
+      </article>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { experience, education, publications, skills } from '../resume';
+---
+<Base title="Work" description="Experience, education and publications.">
+  <h1>Work</h1>
+  <p class="meta">Where I've been and what I did there.</p>
+
+  <div class="split">
+  <div>
+  <h2>Experience</h2>
+  {experience.map((job) => (
+    <div class="role">
+      <div class="role-head"><h3>{job.company}</h3><span>{job.when}</span></div>
+      <p class="where">{job.role} · {job.where}</p>
+      <ul>{job.points.map((pt) => <li>{pt}</li>)}</ul>
+    </div>
+  ))}
+
+  <h2 id="publications">Publications</h2>
+  <ul>
+    {publications.map((p) => <li>{p.title}. <span class="meta">{p.venue}</span></li>)}
+  </ul>
+
+  </div>
+  <aside class="side">
+  <h2>Education</h2>
+  {education.map((e) => (
+    <div class="role">
+      <div class="role-head"><h3>{e.school}</h3><span>{e.when}</span></div>
+      <p class="where">{e.degree} · {e.note}</p>
+    </div>
+  ))}
+
+  <h2>Skills</h2>
+  {Object.entries(skills).map(([group, items]) => (
+    <>
+      <h3>{group}</h3>
+      <ul class="tags">{items.map((s) => <li>{s}</li>)}</ul>
+    </>
+  ))}
+  </aside>
+  </div>
+</Base>
